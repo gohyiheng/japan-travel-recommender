@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import time
-from scrapRegion import scrape_regions
+from scrap_regions import scrape_regions
 
 BASE_URL = 'https://www.japan-guide.com'
 

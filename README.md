@@ -26,5 +26,10 @@ It extracts data about regions, prefectures, cities, ratings, visits, and recomm
 - **`scrap_regions.py`**  
     Contains information with the following columns (
     Region,	Prefecture,	City, Link, Description, Rating,	Visits,	Recommendation) 
+
+- **`data_prep_cities.ipynb`**  
+    - Prepares the csv for use in the recommender system 
+    - Handles missing value (okinawa being a prefecture and a region), duplicate values if any, NaN values
+    - Exports to a new csv for use 
 ---
 

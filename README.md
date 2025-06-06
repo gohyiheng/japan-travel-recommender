@@ -5,7 +5,7 @@ It extracts data about regions, prefectures, cities, ratings, visits, and recomm
 ---
 
 ## WIP
-- Clean csv data file.
+- ~~Clean csv data file.~~
 - Create recommender to allow sorting of cities based on popularity/ratings/mixture of popularity & rating/hidden. gems where cities have high rating but low visits count 
 - Build mvp to showcase data.
 - Include geolocation to cities to generate itinerary based on filters.

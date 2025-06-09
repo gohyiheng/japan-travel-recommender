@@ -1,0 +1,26 @@
+1 - cities information
+2 - places of intrest in each city (TBC)
+3 - cities distance
+4 - places of intrest distance (TBC)
+5 - itinerary saver (TBC)
+
+Table 1
+
+Cities 
+Id - serialnumber PRIMARY
+Region - text,
+Prefecture - text,
+City - text,
+Link - text,
+Description - text,
+Rating - float,
+Visits - int,
+Recommendation - text,
+Latitude - float,
+Longitude - float
+
+Cities_distances
+Id - serialnumber PRIMARY
+city_from - text
+city_to - text
+distance - float 

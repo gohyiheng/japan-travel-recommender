@@ -4,8 +4,7 @@ from geopy.distance import geodesic
 
 def calculate_distance(city1, city2):
     
-    #print(city1,
-          city2)
+    #print(city1,city2)
     R = 6371 
     
     lat1 = np.radians(city1['Latitude'])

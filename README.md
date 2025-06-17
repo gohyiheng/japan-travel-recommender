@@ -64,3 +64,7 @@ Run the program
 
 npm run dev - frontend
 uvicorn main:app --reload - backend
+
+remove dupes: 
+
+/WITH duplicates AS (SELECT "Id", ROW_NUMBER() OVER (PARTITION BY region, prefecture, city ORDER BY "Id") AS rn FROM cities) DELETE FROM cities WHERE "Id" IN (SELECT "Id" FROM duplicates WHERE rn > 1);

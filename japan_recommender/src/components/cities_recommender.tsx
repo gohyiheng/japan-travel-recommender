@@ -23,25 +23,29 @@ export default function JapaneseCitiesRecommender() {
       <h1>Cities</h1>
       {/* iterate through the array */}
       {/* {region, link, prefecture, rating, visits, longitude, city, Id, description, recommendation, latitude} */}
+      <div className="grid grid-cols-4 gap-4">
         {cities.map((city) =>
           // sets the key 
-          <div key={city.Id}>
-            <h2>Region: {city.region}</h2>
-            <h2>Prefecture: {city.prefecture}</h2>
-            <h2>City: {city.city}</h2>
-            <h2>Desc: {city.description}</h2>
-            <h2>Reccomendation: {city.recommendation}</h2>
-            <h2>Rating: {city.rating}</h2>
-            <h2>visits: {city.visits}</h2>
-            <h2>coordinates ({city.longitude}, {city.latitude})</h2>
-            <h2>rating_normalized: {city.rating_normalized}</h2>
-            <h2>rating_normalized: {city.visits_normalized}</h2>
-            <h2>rating_normalized: {city.balanced_score}</h2>
-            <h2>rating_normalized: {city.popular_score}</h2>
-            <h2>rating_normalized: {city.hidden_gem_score}</h2>
-            <br></br>
+          <div 
+            key={city.Id}   
+            className="border rounded-lg justify-center text-center"
+          >
+            <div>Region: {city.region}</div>
+            <div>Prefecture: {city.prefecture}</div>
+            <div>City: {city.city}</div>
+            <div>Rating: {city.rating}</div>
+            <div>Description: {city.description}</div>
+            <div>Recommendation: {city.recommendation}</div>
+            <div>Visits: {city.visits}</div>
+            <div>Coordinates: ({city.longitude}, {city.latitude})</div>
+            <div>Rating Normalized: {city.rating_normalized}</div>
+            <div>Visits Normalized: {city.visits_normalized}</div>
+            <div>Balanced Score: {city.balanced_score}</div>
+            <div>Popular Score: {city.popular_score}</div>
+            <div>Hidden Gem Score: {city.hidden_gem_score}</div>
           </div>
         )}
+      </div>
     </div>
   );
 }

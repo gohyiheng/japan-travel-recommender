@@ -16,8 +16,6 @@
   --color-green: oklch(0.81 0.13 140);      
   --color-sky: oklch(0.88 0.11 220);       
 
-
-
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

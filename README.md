@@ -60,3 +60,7 @@ It extracts data about regions, prefectures, cities, ratings, visits, and recomm
     Uses geodesic distance to calculate all city pairs from `japan_cities_geolocation_cleaned.csv` and generates a new csv file `geodesic_city_distances.csv`.
 ---
 
+Run the program
+
+npm run dev - frontend
+uvicorn main:app --reload - backend

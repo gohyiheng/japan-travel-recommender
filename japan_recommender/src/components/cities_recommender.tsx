@@ -3,8 +3,6 @@ import { useState, useEffect, useActionState } from "react";
 export default function JapaneseCitiesRecommender() {
 
   const [cities, setCities] = useState([]); 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`)
@@ -14,23 +12,31 @@ export default function JapaneseCitiesRecommender() {
       })
       .then(data => {
         setCities(data);
-        setLoading(false);
       })
       .catch(err => {
         console.error("Fetch error:", err);
-        setError(err.message);
-        setLoading(false);
       });
   });
-
-if (loading) return <p>Loading please wait.</p>
-if (error) return <p>Error loading cities: {error}</p>;
 
   return (
     <div>
       <h1>Cities</h1>
-      {/* show all items in db test */}
-      <pre>{JSON.stringify(cities, null, 2)}</pre>
+      {/* iterate through the array */}
+      {/* {region, link, prefecture, rating, visits, longitude, city, Id, description, recommendation, latitude} */}
+        {cities.map((city) =>
+          // sets the key 
+          <div key={city.Id}>
+            <h2>Region: {city.region}</h2>
+            <h2>Prefecture: {city.prefecture}</h2>
+            <h2>City: {city.city}</h2>
+            <h2>Desc: {city.description}</h2>
+            <h2>Reccomendation: {city.recommendation}</h2>
+            <h2>Rating: {city.rating}</h2>
+            <h2>visits: {city.visits}</h2>
+            <h2>coordinates ({city.longitude}, {city.latitude})</h2>
+            <br></br>
+          </div>
+        )}
     </div>
   );
 }

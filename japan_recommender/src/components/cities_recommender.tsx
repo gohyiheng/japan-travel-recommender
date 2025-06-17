@@ -34,6 +34,11 @@ export default function JapaneseCitiesRecommender() {
             <h2>Rating: {city.rating}</h2>
             <h2>visits: {city.visits}</h2>
             <h2>coordinates ({city.longitude}, {city.latitude})</h2>
+            <h2>rating_normalized: {city.rating_normalized}</h2>
+            <h2>rating_normalized: {city.visits_normalized}</h2>
+            <h2>rating_normalized: {city.balanced_score}</h2>
+            <h2>rating_normalized: {city.popular_score}</h2>
+            <h2>rating_normalized: {city.hidden_gem_score}</h2>
             <br></br>
           </div>
         )}

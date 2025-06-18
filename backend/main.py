@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import SessionLocal, engine
 from models import Base, City
@@ -27,5 +28,9 @@ def get_db():
         db.close()
 
 @app.get("/cities")
+        # {region, link, prefecture, rating, visits, longitude, city, Id, description, recommendation, latitude} 
 def read_cities(db: Session = Depends(get_db)):
-    return db.query(City).all()
+    query = text("SELECT city, prefecture, region, hidden_gem_score, popular_score, rating, visits, link FROM cities")
+    result = db.execute(query)
+    cities = [dict(row._mapping) for row in result]  # SQLAlchemy 1.4+
+    return cities

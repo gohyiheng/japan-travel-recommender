@@ -7,7 +7,7 @@
 
 @theme inline {
 
-  --color-background: oklch(0.9524 0.017 76.11);
+  --color-textColor: oklch(0.9524 0.017 76.11);
   --color-charcoal: oklch(0.2 0.01 270);  
   --color-redamber: oklch(0.65 0.12 35);     
   --color-wisteria: oklch(0.73 0.14 305);     

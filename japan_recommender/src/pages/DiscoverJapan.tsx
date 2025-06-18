@@ -1,6 +1,8 @@
+import Navbar from "@/components/navbar";
+import Link from "next/link";
 import { useState, useEffect, useActionState } from "react";
 
-export default function JapaneseCitiesRecommender() {
+export default function DiscoverJapan() {
 
   const [cities, setCities] = useState([]); 
   const [searchTerm, getSearchTerm] = useState("")  
@@ -8,20 +10,21 @@ export default function JapaneseCitiesRecommender() {
   const [sortOrder, setSortOrder] = useState("desc"); // "asc" or "desc"
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`)
-      .then(res => {
+    const fetchCities = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cities`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        return res.json();
-      })
-      .then(data => {
+        const data = await res.json();
         setCities(data);
-      })
-      .catch(err => {
+      } catch (err) {
         console.error("Fetch error:", err);
-      });
+      }
+    };
+
+    fetchCities();
   });
 
-  function dynamicSort(a, b) {
+  function dynamicSort(a: { [x: string]: number; }, b: { [x: string]: number; }) {
     if (a[sortKey] < b[sortKey]) return sortOrder === "asc" ? -1 : 1;
     if (a[sortKey] > b[sortKey]) return sortOrder === "asc" ? 1 : -1;
     return 0;
@@ -33,8 +36,9 @@ export default function JapaneseCitiesRecommender() {
 
   return (
     <div>
+      <div className="mb-16"><Navbar/></div>
       <div className = "px-12">
-        <div className = "text-center text-charcoal text-3xl font-bold mb-6">Japan travel recommender</div>
+        <div className = "text-center text-charcoal text-3xl font-bold mb-6">Discover Japan</div>
           <div className="flex items-center space-x-4">
             {/* user search bar */}
             <input
@@ -84,6 +88,9 @@ export default function JapaneseCitiesRecommender() {
               {/* <div>Recommendation: {city.recommendation}</div> */}
               <div>Visits: {city.visits}</div>
               <div>Rating: {city.rating}</div>
+              <Link href={city.link} target="_blank">
+                View more
+              </Link>
               {/* <div>Coordinates: ({city.longitude}, {city.latitude})</div>
               <div>Rating Normalized: {city.rating_normalized}</div>
               <div>Visits Normalized: {city.visits_normalized}</div>

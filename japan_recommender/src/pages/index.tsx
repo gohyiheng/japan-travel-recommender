@@ -1,11 +1,9 @@
-import JapaneseCitiesRecommender from "@/components/cities_recommender";
-import Recommender from "@/components/cities_recommender";
+import DiscoverJapan from "./DiscoverJapan";
+
+
 
 export default function Home() {
   return (
-    <div>
-      <JapaneseCitiesRecommender/>
-      
-    </div>
+    <DiscoverJapan/>
   );
 }
